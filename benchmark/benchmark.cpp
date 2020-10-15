@@ -349,7 +349,6 @@ void set_cpu_affinity()
 
 
 int main(int argc, const char* argv[]) {
-    std::cout << "MNN benchmark" << std::endl;
     int loop               = 10;
     int warmup             = 10;
     MNNForwardType forward = MNN_FORWARD_CPU;
@@ -374,10 +373,7 @@ int main(int argc, const char* argv[]) {
     if (argc >= 7) {
         precision = atoi(argv[6]);
     }
-    std::cout << "Forward type: **" << forwardType(forward) << "** thread=" << numberThread << "** precision=" <<precision << std::endl;
     std::vector<Model> models = findModelFiles(argv[1]);
-
-    std::cout << "--------> Benchmarking... loop = " << argv[2] << ", warmup = " << warmup << std::endl;
     
     /* not called yet */
     // set_cpu_affinity();
